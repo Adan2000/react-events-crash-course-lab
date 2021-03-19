@@ -5,18 +5,13 @@ import { drawChromeBoiAtCoords, toggleCycling, resize } from './canvasHelpers.js
 export default class ChromeBoisDomain extends Component {
   
   handleMouseMove = (event) => {
-    /* TODO: This method should capture the `x` and `y` coordinates of the mouse
-     * from the event and use them to invoke the `drawChromeBoiAtCoords`
-     * function that has been provided and is already imported
-     * (`drawChromeBoiAtCoords` expects two arguments, an x and a y coordinate)
-     */
     drawChromeBoiAtCoords(event.clientX, event.clientY)
   }
-  
-  /* TODO: Create an event handler which, when fired, invokes the provided
-   * `toggleCycling` function with no arguments. Don't forget the click event
-   * listener that should fire it!
-   */
+  //drawChromBoiAtCords takes in an event, 
+  //we then use the clientX and Y to find the x,y cordinates 
+  //we attach those two methods to the event.
+
+
   handleKeyDown = (event) => {
     if (event.key === 'a') {
       resize('+')
@@ -24,13 +19,10 @@ export default class ChromeBoisDomain extends Component {
       resize('-')
     }
   }
-   
-  /* TODO: Add an event listener to the `<canvas>` element to capture when a key
-  /* is pressed. When a key is pressed, an event handler should invoke the
-  /* provided `resize` function with a single argument of either '+' or '-'
-  /* if the key pressed was 'a', then it should call `resize` with '+'
-  /* if the key pressed was 's', then it should call `resize` with '-' 
-   */
+  //here we are checking for either a or s 
+  //if key was equal to a then we invoke resize and pass in +
+  //if key was equal to s then we invoke resize and pass in -
+
   
   render() {
     return (
@@ -45,3 +37,9 @@ export default class ChromeBoisDomain extends Component {
     )
   }
 }
+//we add an event listener to canvas that listens to click (onClick)
+//when that event is triggered it then triggers the "toggleCycling" method
+
+//we add an event listener that listens to keys (onKeysDown)
+//when triggered it triggers a function that will be INSIDE this component
+//so we use (this.handleKeyDown), that function will do be inccharge of handling that
